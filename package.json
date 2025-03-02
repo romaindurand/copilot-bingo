@@ -1,5 +1,6 @@
 {
 	"name": "copilot-bingo",
+	"description": "testing copilot workspaces with an online bingo game",
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
