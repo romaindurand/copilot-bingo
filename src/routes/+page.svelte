@@ -1,4 +1,6 @@
 <script>
+  import prisma from '$lib/prisma';
+
   const generateBingoGrid = () => {
     const phrases = [
       "Hello world",
@@ -57,6 +59,11 @@
     cell.appendChild(textarea);
     textarea.focus();
   };
+
+  export async function load() {
+    const users = await prisma.user.findMany();
+    return { users };
+  }
 </script>
 
 <style>
@@ -95,4 +102,13 @@
       {/each}
     {/each}
   </div>
+</div>
+
+<div>
+  <h2>Users</h2>
+  <ul>
+    {#each users as user}
+      <li>{user.name} ({user.email})</li>
+    {/each}
+  </ul>
 </div>
